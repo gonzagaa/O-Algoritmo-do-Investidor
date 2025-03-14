@@ -1,0 +1,126 @@
+#depoimentos {
+    overflow: hidden;
+    position: relative;
+}
+
+#depoimentos img.bg.mobile {
+    position: absolute;
+    width: 300%;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 0;
+    left: 0;
+
+    animation: bgDesktop infinite linear 50s;
+
+    filter: blur(3px) brightness(.7);
+}
+
+#depoimentos img.bg.desktop {
+    display: none;
+}
+
+#depoimentos .content {
+    position: relative;
+    z-index: 1;
+}
+
+#depoimentos .content .card {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background: linear-gradient(130deg, #131313ba, #0000003b);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+
+    border-radius: 1rem;
+    padding: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    text-align: left;
+}
+
+#depoimentos .cards .card .head {
+    margin-bottom: 2rem;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#depoimentos .cards .card .head img.perfil {
+    width: 4rem;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+
+    filter: blur(2.5px);
+}
+
+#depoimentos .cards .card .head h3 {
+    color: #fff;
+    font-size: 1.6rem;
+    text-align: left;
+}
+
+#depoimentos .cards .card .head p {
+    color: #dfdfdf;
+    font-size: 1.4rem;
+    text-align: left;
+}
+
+#depoimentos .cards .card .text p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: #c2c2c2;
+}
+
+@media (min-width: 1080px) {
+    section#depoimentos {
+        height: 80vh;
+    }
+
+    section#depoimentos .wrapper {
+        height: 100%;
+        position: absolute;
+        left: 50%;
+        top: 80%;
+        transform: translate(-50%, -50%);
+    }
+
+    section#depoimentos .content {
+        z-index: 10;
+    }
+
+    section#depoimentos img.bg.mobile {
+        display: none;
+    }
+
+    section#depoimentos img.bg.desktop {
+        display: inherit;
+
+        position: absolute;
+        width: 150%;
+        top: 50%;
+        transform: translate(0, -50%);
+        z-index: 0;
+
+        animation: bgDesktop infinite linear 50s;
+
+        filter: blur(3px) brightness(.7);
+    }
+}
+
+@keyframes bgDesktop {
+    0% {
+        transform: translate(0, -50%);
+    }
+
+    50% {
+        transform: translate(-30%, -50%);
+    }
+
+    100% {
+        transform: translate(0, -50%);
+    }
+}
