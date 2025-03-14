@@ -3,10 +3,22 @@
     position: relative;
 }
 
+#depoimentos header h2 {
+    color: #fff;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+#depoimentos header h2 span {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 #depoimentos img.bg.mobile {
     position: absolute;
     width: 300%;
-    top: 50%;
+    top: 60%;
     transform: translate(0, -50%);
     z-index: 0;
     left: 0;
@@ -25,6 +37,10 @@
     z-index: 1;
 }
 
+#depoimentos .content .cards {
+    padding-bottom: 4rem;
+}
+
 #depoimentos .content .card {
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
@@ -38,6 +54,9 @@
     flex-direction: column;
     align-items: start;
     text-align: left;
+
+    height: 43vh;
+    max-height: 43vh;
 }
 
 #depoimentos .cards .card .head {
@@ -67,6 +86,7 @@
     color: #dfdfdf;
     font-size: 1.4rem;
     text-align: left;
+
 }
 
 #depoimentos .cards .card .text p {
@@ -75,16 +95,51 @@
     color: #c2c2c2;
 }
 
+#depoimentos .swiper-pagination-bullet {
+    background-color: #5151513e; 
+    opacity: 1; 
+    width: 13px;
+    height: 13px;
+  }
+  
+#depoimentos .swiper-pagination-bullet-active {
+    background-color: #63FAD6; 
+}
+
 @media (min-width: 1080px) {
     section#depoimentos {
-        height: 80vh;
+        height: 85vh;
+    }
+
+    section#depoimentos header h2 {
+        font-size: 4rem;
+        margin-bottom: 5rem;
+    }
+
+    section#depoimentos .content .cards {
+        padding-bottom: 7rem;
+    }
+
+    section#depoimentos .content .cards .card {
+        height: 40vh;
+        max-height: 40vh;
+        overflow: hidden;
+    }
+
+    section#depoimentos .content .cards .card .text p {
+        max-height: 40vh; /* Define um limite para o texto */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 6; /* Limita o texto a 3 linhas */
+        -webkit-box-orient: vertical;
     }
 
     section#depoimentos .wrapper {
         height: 100%;
         position: absolute;
         left: 50%;
-        top: 80%;
+        top: 65%;
         transform: translate(-50%, -50%);
     }
 
@@ -101,7 +156,7 @@
 
         position: absolute;
         width: 150%;
-        top: 50%;
+        top: 60%;
         transform: translate(0, -50%);
         z-index: 0;
 

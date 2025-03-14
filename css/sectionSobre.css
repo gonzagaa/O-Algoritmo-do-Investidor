@@ -1,0 +1,73 @@
+#sobre {
+    overflow: hidden;
+    position: relative;
+}
+
+#sobre img.bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+#sobre img.bg.desktop {
+    display: none;
+}
+
+#sobre .content {
+    position: relative;
+    z-index: 1;
+}
+
+#sobre header h2 {
+    color: #fff;
+    font-size: 3rem;
+    margin-bottom: .5rem;
+}
+
+#sobre header h2 span {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#sobre header p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: #acacac;
+
+    margin-bottom: 2rem;
+}
+
+#sobre header p span {
+    color: #f0f0f0;
+    font-weight: 600;
+}
+
+@media (min-width: 1080px) {
+    section#sobre img.bg.desktop {
+        display: inherit;
+    }
+
+    section#sobre img.bg.mobile {
+        display: none;
+    }
+
+    section#sobre header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    section#sobre header h2 {
+        font-size: 4rem;
+    }
+
+    section#sobre header p {
+        padding-inline: 15%;
+    }
+}

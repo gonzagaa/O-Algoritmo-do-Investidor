@@ -61,12 +61,6 @@ html {
     background:var(--bg-black);
   }
 
-  .no-scroll {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-  }
-
 
   /* .cursor-dot {
     width: 5px;

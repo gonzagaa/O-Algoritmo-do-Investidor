@@ -1,0 +1,140 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.589);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background: rgb(15, 15, 15);
+    padding-block: 3rem;
+    padding-inline: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    transform: translateY(-30px);
+    transition: transform 0.3s ease;
+    z-index: 10;
+}
+
+.modal header h2 {
+    font-size: 2rem;
+    color: #fff;
+}
+
+.modal header {
+    margin-bottom: 3rem;
+}
+
+.modal-overlay.active .modal {
+    transform: translateY(0);
+}
+
+.close-modal {
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #fff;
+}
+
+body section#form-o-algoritmo-do-investidor-captacao-74cdf661c3e3c04d8848 {
+    padding-block: 0 !important;
+    padding: 0;
+}
+
+body #modalOverlay .modal #form-o-algoritmo-do-investidor-captacao-74cdf661c3e3c04d8848 #rd-form-m896veqr {
+    background: rgb(15, 15, 15);
+}
+
+body #form-o-algoritmo-do-investidor-captacao-74cdf661c3e3c04d8848 form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    text-align: left;
+    width: 100%;
+}
+
+body #form-o-algoritmo-do-investidor-captacao-74cdf661c3e3c04d8848 #rd-column-m896veqq > div {
+    background: rgb(15, 15, 15);
+    padding: 0 !important;
+}
+
+body #form-o-algoritmo-do-investidor-captacao-74cdf661c3e3c04d8848 form label {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    margin-bottom: .5rem;
+    font-weight: 700;
+}
+
+body #form-o-algoritmo-do-investidor-captacao-74cdf661c3e3c04d8848 form input {
+    width: 100% !important;
+    font-size: 1.6rem !important;
+    padding: 1rem !important;
+
+    border: 1px solid #00000000 !important;
+    outline: none !important;
+    border-radius: 1rem !important;
+    background: #1f1f1f !important;
+    color: #fff !important;
+}
+
+body #form-o-algoritmo-do-investidor-captacao-74cdf661c3e3c04d8848 .bricks-form__fieldset {
+    width: 100% !important;
+}
+
+body #form-o-algoritmo-do-investidor-captacao-74cdf661c3e3c04d8848 form input::placeholder {
+    opacity: .6;
+}
+
+body #form-o-algoritmo-do-investidor-captacao-74cdf661c3e3c04d8848 form input:focus {
+    border: 1px solid #ffffff;
+    outline: none;
+}
+
+body #form-o-algoritmo-do-investidor-captacao-74cdf661c3e3c04d8848 form button {
+    background: var(--gradient) !important;
+    color: #000 !important;
+    border-radius: 10px !important;
+}
+
+.modal form button {
+    margin-top: 3rem;
+}
+
+body #form-o-algoritmo-do-investidor-captacao-74cdf661c3e3c04d8848 {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+@media (min-width: 1080px) {
+    .modal {
+        width: 45%;
+        padding-block: 4rem;
+        padding-inline: 5rem;
+    }
+
+    .modal header h2 {
+        font-size: 2.5rem;
+    }
+
+    .modal form button {
+        width: 100%;
+    }
+}

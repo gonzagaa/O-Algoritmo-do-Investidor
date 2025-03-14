@@ -1,0 +1,64 @@
+@import '../global.css';
+
+#politica {
+    background: var(--bg-black);
+    text-align: left;
+}
+
+#politica header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#politica header a {
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+
+    transition: all 200ms ease-in-out;
+}
+
+#politica header a:hover {
+    color: var(--primary-color);
+}
+
+#politica header h2 {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3rem;
+}
+
+#politica p {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-top: 1rem;
+    color: #8d8d8d;
+}
+
+#politica h3 {
+    font-size: 1.6rem;
+    background: linear-gradient(155deg, #fffbfb, #cfffe8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+
+    margin-top: 2rem;
+} 
+
+#politica ul {
+    color: #8d8d8d;
+    list-style-type: circle;
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
