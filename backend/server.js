@@ -13,6 +13,17 @@ const FACEBOOK_ACCESS_TOKEN = process.env.FACEBOOK_ACCESS_TOKEN;
 const FACEBOOK_PIXEL_ID = process.env.FACEBOOK_PIXEL_ID;
 const FB_API_URL = `https://graph.facebook.com/v18.0/${FACEBOOK_PIXEL_ID}/events`;
 
+// Rota GET para testar se o backend está rodando
+app.get('/', (req, res) => {
+    res.send('API de Conversões do Facebook está rodando! 🚀');
+});
+
+// Rota GET para evitar erro 404 em /send-event (mas só aceita POST)
+app.get('/send-event', (req, res) => {
+    res.status(405).send('Método não permitido. Use POST para enviar eventos.');
+});
+
+// Rota POST para enviar eventos ao Facebook
 app.post('/send-event', async (req, res) => {
     const { event_name, client_ip, client_user_agent, email, phone, fbc, fbp } = req.body;
 
@@ -26,16 +37,16 @@ app.post('/send-event', async (req, res) => {
             event_time: Math.floor(Date.now() / 1000),
             action_source: "website",
             user_data: {
-                client_ip_address: client_ip || req.ip,  // Captura o IP do usuário
-                client_user_agent: client_user_agent || req.headers['user-agent'], // Captura o User-Agent
-                em: email ? hashData(email) : undefined,  // Hash do e-mail, se disponível
-                ph: phone ? hashData(phone) : undefined,  // Hash do telefone, se disponível
-                fbc: fbc || undefined,  // ID de clique do Facebook (se disponível)
-                fbp: fbp || undefined   // ID do navegador do Facebook (se disponível)
+                client_ip_address: client_ip || req.ip,
+                client_user_agent: client_user_agent || req.headers['user-agent'],
+                em: email ? hashData(email) : undefined,
+                ph: phone ? hashData(phone) : undefined,
+                fbc: fbc || undefined,
+                fbp: fbp || undefined
             }
         };
 
-        // Remove valores undefined para evitar erros na API
+        // Remove valores undefined
         eventData.user_data = Object.fromEntries(Object.entries(eventData.user_data).filter(([_, v]) => v !== undefined));
 
         const response = await axios.post(FB_API_URL, {
@@ -50,7 +61,7 @@ app.post('/send-event', async (req, res) => {
     }
 });
 
-// Função para aplicar hash SHA-256 (necessário para enviar dados sensíveis como e-mail e telefone)
+// Função para aplicar hash SHA-256 no e-mail e telefone
 const crypto = require('crypto');
 function hashData(data) {
     return crypto.createHash('sha256').update(data.trim().toLowerCase()).digest('hex');
