@@ -10,6 +10,10 @@
       {
         "src": "/send-event",
         "dest": "/server.js"
+      },
+      {
+        "src": "/",
+        "dest": "/server.js"
       }
     ]
   }
