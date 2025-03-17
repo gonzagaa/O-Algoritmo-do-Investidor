@@ -72,14 +72,32 @@
     <script type="text/javascript" async src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/bfe861c8-ab4c-47c1-9b5d-67742fbce12f-loader.js" ></script>
 
     <script>
+        function getFacebookCookies() {
+            return {
+                fbp: getCookie('_fbp') || null,  // Captura o identificador do navegador do Facebook
+                fbc: getCookie('_fbc') || null   // Captura o identificador de clique do Facebook
+            };
+        }
+    
+        function getCookie(name) {
+            let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+            return match ? match[2] : null;
+        }
+    
         function sendFacebookEvent(eventName) {
+            const facebookData = getFacebookCookies();
+    
             fetch("https://o-algoritmo-do-investidor.vercel.app/send-event", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     event_name: eventName,
                     client_ip: "127.0.0.1",
-                    client_user_agent: navigator.userAgent
+                    client_user_agent: navigator.userAgent,
+                    email: "usuario@email.com",  // Substitua por um valor real se disponível
+                    phone: "+5511999999999",  // Substitua por um valor real se disponível
+                    fbc: facebookData.fbc,
+                    fbp: facebookData.fbp
                 })
             })
             .then(response => response.json())
@@ -87,7 +105,6 @@
             .catch(error => console.error("Erro ao enviar evento:", error));
         }
     
-        // Quando a página carregar, enviar os eventos
         window.onload = function () {
             sendFacebookEvent("Lead");
             sendFacebookEvent("CompleteRegistration");
