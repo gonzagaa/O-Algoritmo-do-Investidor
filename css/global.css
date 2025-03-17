@@ -8,13 +8,6 @@
 
 @import url('https://fonts.cdnfonts.com/css/apple-garamond');
 
-@font-face {
-  font-family: 'BrotherBold';
-  src: url('../font/brother-1816-bold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-}
-
 :root {
     font-size: 62.5%;
 
@@ -27,8 +20,6 @@
     --bg-white: #f2fffb;
 
     --nav-height: 7.2rem;
-
-    --brother: 'BrotherBold', sans-serif;
 }  
 
 html {
