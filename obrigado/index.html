@@ -70,12 +70,12 @@
     <!-- End Google Tag Manager (noscript) -->
     <script>
         function sendFacebookEvent(eventName) {
-            fetch("http://localhost:3000/send-event", {
+            fetch("https://o-algoritmo-do-investidor.vercel.app/send-event", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     event_name: eventName,
-                    client_ip: "127.0.0.1", // O backend pode capturar o IP real depois
+                    client_ip: "127.0.0.1",
                     client_user_agent: navigator.userAgent
                 })
             })
@@ -84,12 +84,13 @@
             .catch(error => console.error("Erro ao enviar evento:", error));
         }
     
-        // Quando a página carregar, enviar os eventos para o Facebook
+        // Quando a página carregar, enviar os eventos
         window.onload = function () {
             sendFacebookEvent("Lead");
             sendFacebookEvent("CompleteRegistration");
         };
     </script>
+    
     <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
     <script>
       // Initialize Lenis with options
