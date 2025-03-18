@@ -1,0 +1,17 @@
+header.header.v2#home h1 {
+    font-size: 2rem;
+}
+
+@media (min-width: 1080px) {
+    header.header.v2#home .content h1 {
+        font-size: 4rem;
+        width: 100%;
+      }
+}
+
+@media (min-width: 1700px) {
+    header.header.v2#home .content h1 {
+      font-size: 5rem;
+      width: 100%;
+    }
+  }
