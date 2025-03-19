@@ -328,9 +328,64 @@
       <div class="modal">
           <span class="close-modal" id="closeModal">&times;</span>
 
-          <div role="main" id="o-algoritmo-do-investidor-captacao-74cdf661c3e3c04d8848"></div><script type="text/javascript" src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"></script><script type="text/javascript"> new RDStationForms('o-algoritmo-do-investidor-captacao-74cdf661c3e3c04d8848', 'null').createForm();</script>
+          <div role="main" id="o-algoritmo-do-investidor-captacao-74cdf661c3e3c04d8848"></div>
+          <script type="text/javascript" src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"></script>
       </div>
     </div>
+
+    <script type="text/javascript">
+      console.log("🟢 Script iniciado: Criando formulário da RD Station...");
+    
+      // Cria o formulário da RD Station
+      new RDStationForms('o-algoritmo-do-investidor-captacao-74cdf661c3e3c04d8848', 'null').createForm();
+    
+      console.log("🟡 Aguardando o carregamento do formulário...");
+    
+      // Função para capturar os parâmetros da URL
+      function getUTMParameter(name) {
+          const urlParams = new URLSearchParams(window.location.search);
+          return urlParams.get(name) || '';
+      }
+    
+      // Aguarda o carregamento do formulário
+      document.addEventListener("DOMContentLoaded", function () {
+          setTimeout(function () {
+              console.log("🟢 Documento carregado, procurando formulário...");
+    
+              // Seleciona o formulário gerado dinamicamente
+              const form = document.querySelector("#o-algoritmo-do-investidor-captacao-74cdf661c3e3c04d8848 form");
+    
+              if (form) {
+                  console.log("✅ Formulário encontrado!");
+    
+                  // Captura os valores dos UTMs da URL
+                  const utmFields = [
+                      { name: "cf_utm_campaign", value: getUTMParameter("utm_campaign") },
+                      { name: "cf_utm_content", value: getUTMParameter("utm_content") },
+                      { name: "cf_utm_id", value: getUTMParameter("utm_id") },
+                      { name: "cf_utm_medium", value: getUTMParameter("utm_medium") },
+                      { name: "cf_utm_source", value: getUTMParameter("utm_source") },
+                      { name: "cf_utm_term", value: getUTMParameter("utm_term") }
+                  ];
+    
+                  console.log("📊 UTMs Capturados da URL:", utmFields);
+    
+                  utmFields.forEach(field => {
+                      let input = document.createElement("input");
+                      input.type = "hidden";
+                      input.name = field.name;
+                      input.value = field.value;
+                      form.appendChild(input);
+                      console.log(`✅ Campo oculto adicionado: ${field.name} = ${field.value}`);
+                  });
+    
+                  console.log("🚀 UTMs inseridos no formulário com sucesso!");
+              } else {
+                  console.error("❌ ERRO: Formulário NÃO encontrado! Verifique se o ID está correto.");
+              }
+          }, 1000); // Tempo de espera para garantir que o formulário foi carregado
+      });
+    </script>
 
      <!-- Google Tag Manager (noscript) -->
      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MXF34HD5"
