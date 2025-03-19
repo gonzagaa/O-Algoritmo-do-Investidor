@@ -2,10 +2,42 @@ header.header.v2#home h1 {
     font-size: 2rem;
 }
 
+header.header.v2#home h1 span {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 2.7rem;
+}
+
+header.header.v2#home .content p {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #fcfcfc;
+    line-height: 1.4;
+}
+
+header.header.v2#home .content h4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    color: #aeaeae;
+    font-weight: 600;
+}
+
 @media (min-width: 1080px) {
     header.header.v2#home .content h1 {
         font-size: 4rem;
         width: 100%;
+    }
+
+    header.header.v2#home .content h1 span {
+        font-size: 4rem;
+    }
+
+    header.header.v2#home .content p {
+        font-size: 1.6rem;
+        color: #fff;
+        font-weight: 500;
+        margin-top: 1rem;
       }
 }
 
@@ -13,5 +45,9 @@ header.header.v2#home h1 {
     header.header.v2#home .content h1 {
       font-size: 5rem;
       width: 100%;
+    }
+
+    header.header.v2#home .content h1 span {
+        font-size: 5rem;
     }
   }
