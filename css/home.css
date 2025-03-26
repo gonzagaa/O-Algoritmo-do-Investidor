@@ -88,7 +88,6 @@
     -webkit-text-fill-color: transparent;
   }
 
-  
   #home h1 {
     color: #ffffff;
     line-height: 1;
@@ -234,7 +233,7 @@
       background: radial-gradient(#EAFFFA, #BEFFF0 , #03CE95, transparent 50%);
       border-radius: 50%;
       position: absolute;
-      z-index: 30;
+      z-index: 1;
       top: 50%;
       transform: translate(0, -50%);
       left: -26%;
