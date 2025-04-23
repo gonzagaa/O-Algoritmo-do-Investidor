@@ -39,11 +39,11 @@ app.post('/send-event', async (req, res) => {
             user_data: {
                 client_ip_address: client_ip || req.ip,
                 client_user_agent: client_user_agent || req.headers['user-agent'],
-                em: email ? hashData(email) : undefined,
-                ph: phone ? hashData(phone) : undefined,
-                fbc: fbc || undefined,
-                fbp: fbp || undefined
-            }
+                ...(email && { em: hashData(email) }),
+                ...(phone && { ph: hashData(phone) }),
+                ...(fbc && { fbc }), // Envia exatamente como está, sem modificação
+                ...(fbp && { fbp })  // Também sem modificação
+              }
         };
 
         // Remove valores undefined
