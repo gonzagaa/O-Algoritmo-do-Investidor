@@ -47,40 +47,52 @@ const openModalButtons = document.querySelectorAll('.openModalForm');
 const modalOverlay = document.getElementById('modalOverlay');
 const closeModalButton = document.getElementById('closeModal');
 
-// Variável para armazenar a origem do modal (WhatsApp ou Obrigado)
+// Variável para armazenar a origem do modal (WhatsApp, Obrigado ou Exit)
 let redirectType = null;
 
 // Função para abrir o modal e definir o tipo de redirecionamento
 function openModal(event) {
     modalOverlay.classList.add('active');
 
-    // Verifica qual botão foi clicado e define o tipo de redirecionamento
-    if (event.target.closest('.btn-whatsapp-pulse')) {
+    if (event && event.target.closest('.btn-whatsapp-pulse')) {
         redirectType = 'whatsapp';
-    } else {
+    } else if (event) {
         redirectType = 'obrigado';
+    } else {
+        redirectType = 'exit-intent';
     }
 }
 
 // Função para fechar o modal
 function closeModal() {
     modalOverlay.classList.remove('active');
-    redirectType = null; // Reseta a variável
+    redirectType = null;
 }
 
-// Adiciona evento para abrir o modal nos novos botões
+// Adiciona evento para abrir o modal nos botões
 openModalButtons.forEach(button => {
     button.addEventListener('click', openModal);
 });
 
-// Fecha o modal ao clicar no botão de fechar
+// Evento para fechar ao clicar no botão de fechar
 if (closeModalButton) {
     closeModalButton.addEventListener('click', closeModal);
 }
 
-// Fecha o modal ao clicar na overlay
+// Evento para fechar ao clicar fora do modal (overlay)
 modalOverlay.addEventListener('click', (event) => {
     if (event.target === modalOverlay) {
         closeModal();
     }
 });
+
+// Exit Intent - Mostra o modal ao tentar sair do site
+if (localStorage.getItem('modalShown') !== 'true') {
+    document.addEventListener('mouseleave', function(event) {
+        if (event.clientY <= 0) {
+            localStorage.setItem('modalShown', 'true');
+            openModal(); // abre o modal sem evento, como exit-intent
+        }
+    });
+}
+
